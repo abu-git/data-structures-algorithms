@@ -1,17 +1,24 @@
-# Linear search Algorithm
+# Binary Search Algorithm
 
-# time complexity O(N) and space complexity O(1)
-
+# time complexity O(log N) and space complexity O(1)
 
 def locate_cards(cards, query):
-    position = 0
+    lo, hi = 0, len(cards) - 1
 
-    while position < len(cards):
-        if cards[position] == query:
-            return position
-        position+=1
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        mid_number = cards[mid]
+
+        print("lo:", lo, ", hi:", hi, ", mid:", mid, ", mid_number:", mid_number)
+
+        if mid_number == query:
+            return mid
+        elif mid_number < query:
+            hi = mid - 1
+        elif mid_number > query:
+            lo = mid + 1
+
     return -1
-
 
 #see tests below
 
@@ -106,8 +113,6 @@ tests.append({
     'output': 2
 })
 
-
 for test in tests:
     result = locate_cards(test['input']['cards'], test['input']['query'])
     print(result == test['output'])
-
