@@ -13,15 +13,34 @@
 #   Sorted list refers to a list where the elements are arranged in the increasing order eg [1, 3, 5, 7]
 
 
-
+#   Linear search solution --- algorithm complexity O(N)
 def count_rotations(nums):
     # initial value of position
     position = 1
+    print('nums:', nums)
 
     while position <= len(nums) - 1:
-        if nums[position] < nums[position - 1]:
+        if nums[position] < nums[position - 1] and position > 0:
+            print('position:', position)
             return position
         position+=1
+    return 0
+
+#   Binary search solution
+def count_rotations_binary(nums):
+    lo = 0
+    hi = len(nums) - 1
+
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        mid_number = nums[mid]
+
+        if mid > 0 and mid_number < nums[mid - 1]:
+            return mid
+        elif mid > 0 and mid_number > nums[mid - 1] and mid_number < nums[hi]:
+            hi = mid - 1
+        else:
+            lo = mid + 1
     return 0
 
 #   see tests below
@@ -92,5 +111,5 @@ tests.append({
 })
 
 for test in tests:
-    result = count_rotations(test['input']['nums'])
+    result = count_rotations_binary(test['input']['nums'])
     print(result == test['output'])
