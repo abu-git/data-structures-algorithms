@@ -7,6 +7,7 @@ def locate_cards(cards, query):
     position = 0
 
     while position < len(cards):
+        #print('card:', cards[position])
         if cards[position] == query:
             return position
         position+=1
@@ -31,6 +32,14 @@ test2 = {
         'query': 4
     },
     'output': 0
+}
+
+largeTest = {
+    'input': {
+        'cards': list(range(10000000, 0, -1)),
+        'query': 2
+    },
+    'output': 9999998
 }
 
 
@@ -106,8 +115,12 @@ tests.append({
     'output': 2
 })
 
+# large array testing to compare linear search vs binary search
+result = locate_cards(largeTest['input']['cards'], largeTest['input']['query'])
+print(result == largeTest['output'])
 
-for test in tests:
-    result = locate_cards(test['input']['cards'], test['input']['query'])
-    print(result == test['output'])
+
+#for test in tests:
+#    result = locate_cards(test['input']['cards'], test['input']['query'])
+#    print(result == test['output'])
 
