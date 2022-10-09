@@ -154,8 +154,8 @@ extended_test = {
     'output': 6
 }
 
-result = count_rotations_binary_repeating(extended_test['input']['nums'])
-print(result == extended_test['output'])
+#result = count_rotations_binary_repeating(extended_test['input']['nums'])
+#print(result == extended_test['output'])
 
 for test in tests:
     result = count_rotations_binary(test['input']['nums'])

@@ -30,6 +30,10 @@ def find_target_rotated_sorted_list(nums, target):
                 left = mid + 1
     return -1
 
+
+
+#   Tests below
+
 test = {
     'input': {
         'nums': [5, 6, 9, 0, 2, 3, 4],
@@ -38,5 +42,43 @@ test = {
     'output': 4
 }
 
-result = find_target_rotated_sorted_list(test['input']['nums'], test['input']['target'])
-print(result == test['output'])
+tests = []
+
+tests.append({
+    'input': {
+        'nums': [5, 6, 9, 0, 2, 3, 4],
+        'target': 2
+    },
+    'output': 4
+})
+
+tests.append({
+    'input': {
+        'nums': [4, 5, 6, 7, 0, 1, 2],
+        'target': 0
+    },
+    'output': 4
+})
+
+tests.append({
+    'input': {
+        'nums': [4, 5, 6, 7, 0, 1, 2],
+        'target': 3
+    },
+    'output': -1
+})
+
+tests.append({
+    'input': {
+        'nums': [1],
+        'target': 0
+    },
+    'output': -1
+})
+
+#result = find_target_rotated_sorted_list(test['input']['nums'], test['input']['target'])
+#print(result == test['output'])
+
+for test in tests:
+    result = find_target_rotated_sorted_list(test['input']['nums'], test['input']['target'])
+    print(result == test['output'])
