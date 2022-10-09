@@ -26,7 +26,7 @@ def count_rotations(nums):
         position+=1
     return 0
 
-#   Binary search solution
+#   Binary search solution --- alogorithm complexity O(log N)
 def count_rotations_binary(nums):
     lo = 0
     hi = len(nums) - 1
@@ -42,6 +42,42 @@ def count_rotations_binary(nums):
         else:
             lo = mid + 1
     return 0
+
+#   Binary search solution that caters for repeating numbers
+def check_repeat(nums, mid):
+    if mid > 0 and nums[mid] == nums[mid - 1]:
+        return 'left'
+    else:
+        return 'perform'
+        
+
+def count_rotations_binary_repeating(nums):
+    lo = 0
+    hi = len(nums) - 1
+
+    while lo <= hi:
+        mid = lo + hi // 2
+
+        print("lo: ", lo, "hi: ", hi)
+        mid_number = nums[mid]
+
+
+        result = check_repeat(nums, mid)
+
+
+        if result == 'left':
+            mid = mid - 1
+            hi = hi - 1
+            continue
+        elif result == 'perform':
+            if mid > 0 and mid_number < nums[mid - 1]:
+                return mid
+            elif mid > 0 and mid_number > nums[mid - 1] and mid_number < nums[hi]:
+                hi = mid - 1
+            else:
+                lo = mid + 1
+    return 0
+
 
 #   see tests below
 tests = []
@@ -109,6 +145,17 @@ tests.append({
     },
     'output': 0
 })
+
+#   extended test
+extended_test = {
+    'input': {
+        'nums': [5, 6, 6, 9, 9, 9, 0, 0, 2, 3, 3, 3, 3, 4, 4]
+    },
+    'output': 6
+}
+
+result = count_rotations_binary_repeating(extended_test['input']['nums'])
+print(result == extended_test['output'])
 
 for test in tests:
     result = count_rotations_binary(test['input']['nums'])
