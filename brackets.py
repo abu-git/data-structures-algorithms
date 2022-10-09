@@ -48,7 +48,34 @@ For each string, return YES or NO.
 '''
 
 def isBalanced(s):
-    pass
+    stack = []
+    #print("stack in the beginning: ", stack)
+    #closer brackets ) } ] '
+    for element in s:
+        #if stack is empty just append
+        if len(stack) == 0:
+            stack.append(element)
+
+        #   if stack is not empty we compare last element in stack with new element to see if its a closing match.
+        #   if it is a closing match, we pop the last element of the stack
+        else:
+            last = stack[-1]
+            if last == "{" and element == "}":
+                stack.pop()
+            elif last == "[" and element == "]":
+                stack.pop()
+            elif last == "(" and element == ")":
+                stack.pop()
+            else:
+                stack.append(element)
+    #print("stack at the end: ", stack)
+    if len(stack) == 0:
+        #print("YES")
+        return "YES"
+    else:
+        #print("NO")
+        return "NO"
+
 
 
 tests = []
