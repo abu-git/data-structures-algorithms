@@ -50,7 +50,6 @@ For each string, return YES or NO.
 def isBalanced(s):
     stack = []
     #print("stack in the beginning: ", stack)
-    #closer brackets ) } ] '
     for element in s:
         #if stack is empty just append
         if len(stack) == 0:
@@ -70,10 +69,8 @@ def isBalanced(s):
                 stack.append(element)
     #print("stack at the end: ", stack)
     if len(stack) == 0:
-        #print("YES")
         return "YES"
     else:
-        #print("NO")
         return "NO"
 
 
