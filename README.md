@@ -22,4 +22,40 @@ You can run any file on terminal
 python brackets.py
 ```
 
-Repeat for any file in the directory. 
+Repeat for any file in the directory. For example:
+
+```bash
+python binarySearch.py
+```
+
+or 
+
+```bash
+python binarySearchAlgorithm.py
+```
+
+
+## Python3 terminal users
+I am also aware that some users might need to run **python3** and not **python**
+
+
+```bash
+python3 brackets.py
+```
+
+Repeat for any file in the directory. For example:
+
+```bash
+python3 binarySearch.py
+```
+
+or 
+
+```bash
+python3 binarySearchAlgorithm.py
+```
+
+
+
+
+
