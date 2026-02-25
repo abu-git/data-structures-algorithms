@@ -1,6 +1,6 @@
 # data-structures-algorithms
 
-This repo contains python files lessons on a couple of concepts from Data Structures and Algorithms.
+This repo contains python files while practicing lessons on a couple of concepts from Data Structures and Algorithms.
 
 
 ## 📦 Installation
