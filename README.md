@@ -8,7 +8,7 @@ This repo contains python files while practicing lessons on a couple of concepts
 Clone the repo and install dependencies:
 
 ```bash
-git clone https://github.com/abu-git/data-structures-algorithms.git
+git clone [https://github.com/abu-git/data-structures-algorithms.git](https://github.com/abu-git/data-structures-algorithms.git)
 cd data-structures-algorithms
 ```
 
